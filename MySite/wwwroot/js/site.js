@@ -4,18 +4,19 @@
 // Write your JavaScript code.
 "use-strict"
 
-function coding_clicked() {
-    alert("C#");
+function copy_email() {
+    var email = document.getElementById("emailBtn");
+    navigator.clipboard.writeText(email.textContent.trim());
+    email.title = "Email Copied!";
 }
 
-function cooking_clicked() {
-    alert("Cookie");
-}
-
-function travel_clicked() {
-    alert("Viaggi");
-}
-
-function mind_clicked() {
-    alert("Mind")
+function reset_tooltip(){
+    var email = document.getElementById("emailBtn");
+    navigator.clipboard.readText().then(txt => console.log(txt));
+    navigator.clipboard.readText().then(text => {
+        if (text != email.textContent) {
+            console.log("Changed");
+            email.title = "Copy Email";
+        }
+    });
 }

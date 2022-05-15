@@ -45,4 +45,51 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+  background-color:#2F2F2F;
+}
+
+.ftr-front{
+    color: white;
+}
+
+.flat-link{
+  color: white;
+  text-decoration: none;
+}
+
+.ftr-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.hdr-pad{
+    padding-left: 40%;
+}
+
+.flex-vrt{
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+}
+
+.centered{
+    justify-content: center;
+    text-align: center;
+}
+
+.flex-orz{
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: auto auto;
+    text-align: center;
+    gap: 10%;
+}
+
+.eml-btn{
+    border: 0px;
+    height: auto;
+    width: auto;
+    background-color: transparent;
 }

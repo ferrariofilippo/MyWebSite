@@ -12,18 +12,30 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MySite</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Filippo Ferrario</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between hdr-pad">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CodingPage">CODING PROJECTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CookingPage">COOKING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/TravelPage">TRAVEL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MindPage">IN MY MIND</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">PRIVACY</a>
                         </li>
                     </ul>
                 </div>
@@ -36,29 +48,26 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Filippo Ferrario - <a asp-area="" asp-page="/Privacy">Privacy</a>
-
-            @*<div style="text-align: center;">
-                <label style="color: white; text-align: center;">Social: </label><br>
-                <a href="https://github.com/ferrariofilippo" style="color: #DDDDDD; font-size: smaller; text-align: center; text-decoration: none;">
-                    GitHub
-                </a><br>
-                <a href="https://instagram.com/_ferra04?igshid=YmMyMTA2MM2Y=" style="color: #DDDDDD; font-size: smaller; text-align: center; text-decoration: none;">
-                    Instagram
-                </a><br>
-                <a href="https://www.linkedin.com/in/filippo-ferrario-aa3288200" style="color: #DDDDDD; font-size: smaller; text-align: center; text-decoration: none;">
-                    Linkedin
-                </a>
+    <footer class="border-top footer text-muted ftr-container">
+        <div class="container ftr-front">
+            <div class="flex-orz" style="justify-content: center;">
+                <div>
+                    &copy; 2022 - Filippo Ferrario - <a asp-area="" asp-page="/Privacy" class="link-light">Privacy</a>
+                </div>
+                <div class="flex-vrt">
+                    <h6 class="centered">Contatti</h6>
+                    <button id="emailBtn" class="centered eml-btn ftr-front"
+                            onclick="copy_email()" onmouseover="reset_tooltip()"
+                            data-placement="top" data-toggle="tooltip" title="Copy Email">filippo.ferrario@issgreppi.it</button>
+                </div>
             </div>
-            <div style="text-align: center;">
-                <label style="color: white; text-align: center;">Contatti: </label><br>
-                <label style="color: #DDDDDD; font-size: smaller; text-align: center;">filippo.ferrario@issgreppi.it</label>
-            </div>*@
         </div>
     </footer>
-
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
