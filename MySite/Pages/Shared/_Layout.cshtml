@@ -6,11 +6,11 @@
     <title>@ViewData["Title"] - Filippo Ferrario</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MySite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MySite.styles.css" asp-append-version="true"/>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">Filippo Ferrario</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -43,12 +43,12 @@
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted ftr-container">
+    <footer class="footer text-muted ftr-container">
         <div class="container ftr-front">
             <div class="flex-orz" style="justify-content: center;">
                 <div>

@@ -23,9 +23,6 @@ a {
   border-color: #1861ac;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -58,10 +55,9 @@ button.accept-policy {
 }
 
 .ftr-container{
-    display: flex;
-    flex-direction: row;
     padding-top: 5px;
     padding-bottom: 5px;
+    gap: 50px;
 }
 
 .hdr-pad{
@@ -74,17 +70,12 @@ button.accept-policy {
     line-height: 25px;
 }
 
-.centered{
-    justify-content: center;
-    text-align: center;
-}
-
 .flex-orz{
     display: flex;
-    flex-direction: row;
-    grid-template-columns: auto auto;
+    flex-direction: column;
+    grid-template-rows: auto auto;
     text-align: center;
-    gap: 10%;
+    gap: 20px;
 }
 
 .eml-btn{
@@ -92,4 +83,12 @@ button.accept-policy {
     height: auto;
     width: auto;
     background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+    .flex-orz {
+        flex-direction: row;
+        grid-template-columns: auto auto;
+        gap: 10%;
+    }
 }

@@ -2,12 +2,6 @@ html {
     font-size: 14px;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
 html {
     position: relative;
     min-height: 100%;
@@ -26,4 +20,79 @@ body {
 }
 .link:hover {
     color: #FF8F00;
+}
+
+.left {
+    width: 100%;
+    height: 800px;
+    background-color: #FF8F00;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    width: 100%;
+    height: 700px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: auto auto;
+}
+
+.centered {
+    justify-content: center;
+    text-align: center;
+}
+
+.line {
+    width: 200px;
+    border-top: 3px solid #2F2F2F;
+    margin: 15px;
+}
+
+.title {
+    min-width: 100%;
+    max-width: 300%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+    .main-container {
+        flex-direction: row;
+        grid-template-columns: auto auto;
+    }
+
+    .left {
+        width: 70%;
+        height: 920px;
+        flex-direction: row;
+        grid-template-columns: auto auto auto;
+    }
+
+    .right {
+        width: 30%;
+        height: 920px;
+    }
+
+    .line {
+        width: 0px;
+        border-top: 0px;
+        height: 13%;
+        border-left: 3px solid #2F2F2F;
+        margin-top: 0px;
+        margin-left: 15px;
+    }
+
+    .title {
+        text-align: end;
+    }
 }
