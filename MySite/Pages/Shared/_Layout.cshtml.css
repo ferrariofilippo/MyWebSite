@@ -60,10 +60,6 @@ button.accept-policy {
     gap: 50px;
 }
 
-.hdr-pad{
-    padding-left: 40%;
-}
-
 .flex-vrt{
     display: flex;
     flex-direction: column;
@@ -85,10 +81,20 @@ button.accept-policy {
     background-color: transparent;
 }
 
+.hdr-pad {
+    padding-left: 6%;
+}
+
 @media screen and (min-width: 768px) {
     .flex-orz {
         flex-direction: row;
         grid-template-columns: auto auto;
         gap: 10%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .hdr-pad {
+        padding-left: 35%;
     }
 }

@@ -61,6 +61,16 @@ body {
     text-align: center;
 }
 
+.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-section {
+    padding: 15px 20px 15px 20px;
+    min-height: 100%;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -94,5 +104,9 @@ body {
 
     .title {
         text-align: end;
+    }
+
+    .main-section {
+        padding: 40px 15% 40px 15%;
     }
 }
