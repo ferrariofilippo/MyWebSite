@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-namespace MySite.Pages
+
+namespace MySite.Templates
 {
-    public class TravelPageModel : PageModel
+    public class RecipeTemplateModel : PageModel
     {
         public void OnGet()
         {

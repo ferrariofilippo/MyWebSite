@@ -71,6 +71,11 @@ body {
     min-height: 100%;
 }
 
+.wrld {
+    width: 100%;
+    min-width: 15%;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
