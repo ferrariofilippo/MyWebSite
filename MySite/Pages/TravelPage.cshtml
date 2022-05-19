@@ -5,8 +5,8 @@
 }
 
 <script src="~/js/worldscript.js" asp-append-version="true"></script>
-<body onresize="adjust_hitboxes()">
-    <div class="main-section">
+<body onresize="adjust_hitboxes()" onload="fetch_visited()">
+    <div class="main-section" id="map-container">
         <p>
             Where am I? Where have I been?<br />
             This section is dedicated to my <strong>adventures</strong> around the globe.<br />
@@ -17,16 +17,8 @@
         <div id="world">
             <img src="Images/world.png" class="wrld" usemap="#countries" id="worldmap" alt="blank world map" onload="load_countries()"/>
             <map name="countries" id="countries">
-               @* <area shape="poly" alt="italy" href="https://en.wikipedia.org/wiki/Italy" coords="10,20,30,20,50,70" />
-                <area shape="poly" alt="sardinia" href="https://en.wikipedia.org/wiki/Italy" onclick="alert('Sardegna')" coords="1946,618,1957,613,1966,615,1964,649,1946,649" />
-                <area shape="poly" alt="san_marino" href="https://en.wikipedia.org/wiki/San_Marino" coords="1998,573,1999,576,2000,573" />*@
-                @*<area shape="poly" alt="austria" href="https://en.wikipedia.org/wiki/Austria" coords=""/>*@
-                @* <area shape="poly" alt="germany" href="germany" coords=""/>
-                <area shape="poly" alt="france" href="france" coords=""/>
-                <area shape="poly" alt="spain" href="spain" coords=""/>
-                <area shape="poly" alt="switzerland" href="switzerland" coords=""/>*@
             </map>
         </div>
-        @*Planisfero con colorate le nazioni in cui sono stato, counter nazioni visitate. Cliccando su una nazione viene mostrato (se disponibile) una pagina web legata alla mia esperienza*@
+        @*Cliccando su una nazione viene mostrato (se disponibile) una pagina web legata alla mia esperienza*@
     </div>
 </body>

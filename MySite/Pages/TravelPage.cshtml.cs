@@ -6,6 +6,7 @@ namespace MySite.Pages
     {
         public void OnGet()
         {
+
         }
     }
 }
