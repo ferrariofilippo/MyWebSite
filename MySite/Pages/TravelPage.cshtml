@@ -4,21 +4,22 @@
     ViewData["Title"] = "Travel";
 }
 
-<script src="~/js/mapscript.js" asp-append-version="true"></script>
-<body onresize="">
+<script src="~/js/worldscript.js" asp-append-version="true"></script>
+<body onresize="adjust_hitboxes()">
     <div class="main-section">
         <p>
             Where am I? Where have I been?<br />
             This section is dedicated to my <strong>adventures</strong> around the globe.<br />
             On the map you can see which countries I visited and which not.<br />
             <strong>Click</strong> on a nation to learn more about my experience there.
+            <noscript><strong><br /><br />(This function needs js to work)</strong></noscript>
         </p>
         <div id="world">
             <img src="Images/world.png" class="wrld" usemap="#countries" id="worldmap" alt="blank world map" onload="load_countries()"/>
-            <map name="countries">
-                <area shape="poly" alt="italy" href="https://en.wikipedia.org/wiki/Italy" coords="10,20,30,20,50,70" />
+            <map name="countries" id="countries">
+               @* <area shape="poly" alt="italy" href="https://en.wikipedia.org/wiki/Italy" coords="10,20,30,20,50,70" />
                 <area shape="poly" alt="sardinia" href="https://en.wikipedia.org/wiki/Italy" onclick="alert('Sardegna')" coords="1946,618,1957,613,1966,615,1964,649,1946,649" />
-                <area shape="poly" alt="san_marino" href="https://en.wikipedia.org/wiki/San_Marino" coords="1998,573,1999,576,2000,573" />
+                <area shape="poly" alt="san_marino" href="https://en.wikipedia.org/wiki/San_Marino" coords="1998,573,1999,576,2000,573" />*@
                 @*<area shape="poly" alt="austria" href="https://en.wikipedia.org/wiki/Austria" coords=""/>*@
                 @* <area shape="poly" alt="germany" href="germany" coords=""/>
                 <area shape="poly" alt="france" href="france" coords=""/>
