@@ -1,7 +1,7 @@
 [
   {
     "country": "San Marino",
-    "url": "https://en.wikipedia.org/wiki/San_Marino",
+    "url": "San_Marino",
     "coords": [
       [ 1998, 573 ],
       [ 1997, 575 ],
@@ -11,7 +11,7 @@
   },
   {
     "country": "Italy",
-    "url": "https://en.wikipedia.org/wiki/Italy",
+    "url": "Italy",
     "coords": [
       [ 2012, 543 ],
       [ 2012, 537 ],
@@ -53,7 +53,7 @@
   },
   {
     "country": "Sardinia",
-    "url": "https://en.wikipedia.org/wiki/Italy",
+    "url": "Italy",
     "coords": [
       [ 1946, 618 ],
       [ 1957, 613 ],
@@ -64,7 +64,7 @@
   },
   {
     "country": "Austria",
-    "url": "https://en.wikipedia.org/wiki/Austria",
+    "url": "Austria",
     "coords": [
       [ 1970, 526 ],
       [ 1965, 522 ],
@@ -111,7 +111,7 @@
   },
   {
     "country": "Spain",
-    "url": "https://en.wikipedia.org/wiki/Spain",
+    "url": "Spain",
     "coords": [
       [ 1769, 694 ],
       [ 1814, 682 ],
@@ -162,7 +162,7 @@
   },
   {
     "country": "Canary",
-    "url": "https://en.wikipedia.org/wiki/Spain",
+    "url": "Spain",
     "coords": [
       [ 1594, 831 ],
       [ 1659, 816 ],
@@ -172,7 +172,7 @@
   },
   {
     "country": "Ibiza",
-    "url": "https://en.wikipedia.org/wiki/Spain",
+    "url": "Spain",
     "coords": [
       [ 1857, 653 ],
       [ 1897, 653 ],
@@ -182,7 +182,7 @@
   },
   {
     "country": "France",
-    "url": "https://en.wikipedia.org/wiki/France",
+    "url": "France",
     "coords": [
       [ 1792, 500 ],
       [ 1826, 483 ],
@@ -246,7 +246,7 @@
   },
   {
     "country": "Switzerland",
-    "url": "https://en.wikipedia.org/wiki/Switzerland",
+    "url": "Switzerland",
     "coords": [
       [ 1922, 532 ],
       [ 1933, 518 ],
@@ -274,7 +274,7 @@
   },
   {
     "country": "Germany",
-    "url": "https://en.wikipedia.org/wiki/Germany",
+    "url": "Germany",
     "coords": [
       [ 1934, 426 ],
       [ 1953, 407 ],

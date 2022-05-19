@@ -47,7 +47,7 @@ async function load_countries() {
         const area = document.createElement('area');
         area.shape = 'poly';
         area.alt = countries[i]['country'];
-        area.href = countries[i]['url'];
+        area.href = '/TravelTemplate?country=' + countries[i]['url'];
         
         var coords = [];
         for (var j = 0; j < countries[i]['coords'].length; j++) {
