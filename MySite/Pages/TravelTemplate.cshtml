@@ -1,11 +1,29 @@
 ﻿@page
 @model MySite.Pages.TravelTemplateModel
 @{
+    var country = (MySite.Models.Travel?)ViewData["Travel"];
+    var places = (MySite.Models.SuggestedPlace[]?)ViewData["Places"];
 }
-<div>
-    <h1></h1>
+
+<div style="background-image: @country?.BackgroundImage">
+    <h1 style="text-align: center">@country?.Country</h1>
+</div>
+<div class="main-section">
+    <br /><br />
+    <p>
+        @Html.Raw(@country?.Description)
+    </p>
+    <br /><br />
     <div class="carousel">
-        
+    
     </div>
-    <p></p>
+    <br /><br />
+    <h4>My top 5:</h4>
+    <ul>
+        <li><a class="link-txt link" href=@places?[0]?.Url>@places?[0]?.Country</a></li>
+        <li><a class="link-txt link" href=@places?[0]?.Url>@places?[1]?.Country</a></li>
+        <li><a class="link-txt link" href=@places?[0]?.Url>@places?[2]?.Country</a></li>
+        <li><a class="link-txt link" href=@places?[0]?.Url>@places?[3]?.Country</a></li>
+        <li><a class="link-txt link" href=@places?[0]?.Url>@places?[4]?.Country</a></li>
+    </ul>
 </div>
