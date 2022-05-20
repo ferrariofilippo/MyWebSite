@@ -1,11 +1,21 @@
 ﻿@page
 @model MySite.Pages.CodingTemplateModel
 @{
+    var project = (MySite.Models.Project?)ViewData["Project"];
 }
 
 <div>
-    <h1 style="text-align: center;">@ViewData["Title"]</h1>
+    <h1 style="text-align: center;">@project?.Name</h1>
 </div>
 <div class="main-section">
-    
+    <div>
+        @*Introduzione e Dati sul progetto*@
+    </div>
+
+    <img />
+
+    <p>
+        @Html.Raw(@project?.Description)
+    </p><br /><br />
+    <a class="link link-txt" herf=@project?.GitRef><em>GitHub Repository</em></a>
 </div>

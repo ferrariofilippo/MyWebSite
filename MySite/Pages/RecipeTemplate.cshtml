@@ -1,4 +1,15 @@
 ﻿@page
 @model MySite.Pages.RecipeTemplateModel
 @{
+    var recipe = (MySite.Models.Recipe?)ViewData["Recipe"];
 }
+<h1>@recipe?.Name</h1>
+<div class="main-section"> 
+    <img />
+    <ul>
+    </ul>
+    <br /><br />
+    <p>
+        @Html.Raw(@recipe?.Description)
+    </p>
+</div>

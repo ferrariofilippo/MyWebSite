@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Diagnostics;
+using MySite.Models;
 namespace MySite.Pages
 {
     public class MindTemplateModel : PageModel
@@ -8,6 +8,7 @@ namespace MySite.Pages
         public void OnGet()
         {
             ViewData["Title"] = Request.Query["page"];
+            ViewData["Content"] = new RandomPage();
         }
     }
 }
