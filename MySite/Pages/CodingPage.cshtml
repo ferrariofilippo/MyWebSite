@@ -2,6 +2,7 @@
 @model MySite.Pages.CodingPageModel
 @{
     ViewData["Title"] = "Coding";
+    var projs = (MySite.Models.BriefProject[]?)ViewData["projects"];
 }
 <div class="main-section">
     <p>Our entire life is influenced by <strong>algorithms</strong>.<br />

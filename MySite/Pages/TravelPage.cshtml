@@ -2,6 +2,7 @@
 @model MySite.Pages.TravelPageModel
 @{
     ViewData["Title"] = "Travel";
+    var trvls = (MySite.Models.BriefTravel[]?)ViewData["travels"];
 }
 
 <script src="~/js/worldscript.js" asp-append-version="true"></script>

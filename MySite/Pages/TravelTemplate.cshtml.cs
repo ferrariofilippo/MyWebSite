@@ -1,16 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySite.Models;
-using System.Net;
+using MySite.Data;
+using Microsoft.EntityFrameworkCore;
 namespace MySite.Pages
 {
     public class TravelTemplateModel : PageModel
     {
-        public void OnGet()
+        public async void OnGet(TravelDbContext db)
         {
             ViewData["Title"] = Request.Query["country"];
-            ViewData["Travel"] = new Travel(); // Fetch the travel from a db
-            ViewData["Places"] = new SuggestedPlace[5]; // Fetch from a db
+            ViewData["Travel"] = await db.Travels
+                .FindAsync(Request.Query["country"]);
+            ViewData["Places"] = await db.SuggestedPlaces
+                .Where(sp => sp.Country == Request.Query["country"])
+                .ToArrayAsync();
         }
     }
 }

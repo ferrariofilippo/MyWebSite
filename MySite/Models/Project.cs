@@ -1,4 +1,5 @@
-﻿namespace MySite.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace MySite.Models
 {
     public enum Language
     {
@@ -22,7 +23,7 @@
 
     public class Project
     {
-        public int Projectid { get; set; }
+        [Key]
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public ProjectType ProjectType { get; set; }

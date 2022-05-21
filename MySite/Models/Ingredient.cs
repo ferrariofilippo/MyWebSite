@@ -17,6 +17,6 @@
         public int IngredientId { get; set; }
         public string Name { get; set; } = null!;
         public MeasureUnit MeasureUnit { get; set; }
-        List<LinkRecIng> Recipes { get; set; }
+        public List<LinkRecIng>? Recipes { get; set; }
     }
 }

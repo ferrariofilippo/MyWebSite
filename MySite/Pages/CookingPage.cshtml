@@ -2,6 +2,7 @@
 @model MySite.Pages.CookingPageModel
 @{
     ViewData["Title"] = "Cooking";
+    var rcps = (MySite.Models.BriefRecipe[]?)ViewData["recipes"];
 }
 
 <div class="main-section">

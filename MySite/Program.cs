@@ -1,7 +1,31 @@
+using Microsoft.EntityFrameworkCore;
+using MySite.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var cookingConnection = builder.Configuration
+    .GetConnectionString("CookingDbConnection");
+var codingConnection = builder.Configuration
+    .GetConnectionString("CodingDbConnection");
+var travelConnection = builder.Configuration
+    .GetConnectionString("TravelDbConnection");
+var mindConnection = builder.Configuration
+    .GetConnectionString("MindDbConnection");
+
+var cookingServer = ServerVersion.AutoDetect(cookingConnection);
+var codingServer = ServerVersion.AutoDetect(codingConnection);
+var travelServer = ServerVersion.AutoDetect(travelConnection);
+var mindServer = ServerVersion.AutoDetect(mindConnection);
+
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<CookingDbContext>(db => 
+    db.UseMySql(cookingConnection, cookingServer));
+builder.Services.AddDbContext<TravelDbContext>(db => 
+    db.UseMySql(codingConnection, codingServer));
+builder.Services.AddDbContext<MindDbContext>(db => 
+    db.UseMySql(travelConnection, travelServer));
+builder.Services.AddDbContext<CodingDbContext>(db => 
+    db.UseMySql(mindConnection, mindServer));
 
 var app = builder.Build();
 

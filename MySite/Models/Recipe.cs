@@ -1,10 +1,11 @@
-﻿namespace MySite.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace MySite.Models
 {
     public class Recipe
     {
-        public int RecipeId { get; set; }
+        [Key]
         public string Name { get; set; } = null!;    
         public string Description { get; set; } = null!;
-        List<LinkRecIng>? Ingredients { get; set; }
+        public List<LinkRecIng>? Ingredients { get; set; }
     }
 }

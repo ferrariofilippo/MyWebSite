@@ -2,6 +2,7 @@
 @model MySite.Pages.MindPageModel
 @{
     ViewData["Title"] = "In My Mind";
+    var pgs = (MySite.Models.BriefMind[]?)ViewData["pages"];
 }
 
 <div class="main-section">
