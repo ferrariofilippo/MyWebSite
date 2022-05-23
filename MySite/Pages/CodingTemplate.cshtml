@@ -9,9 +9,16 @@
 </div>
 <div class="main-section">
     <div>
-        @*Introduzione e Dati sul progetto*@
+        <div style="color: gray; font-style: italic; font-weight:200;">
+            @project?.BeginDate- @project?.EndDate
+        </div>
+        <div style="background-color: #FF8000; color: white;" class="main-container">
+            @project?.Language - @project?.ProjectType
+        </div>
     </div>
-
+    <div>
+        @Html.Raw(project?.Resume)
+    </div>
     <img />
 
     <p>

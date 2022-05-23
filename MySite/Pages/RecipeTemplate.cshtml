@@ -2,13 +2,31 @@
 @model MySite.Pages.RecipeTemplateModel
 @{
     var recipe = (MySite.Models.Recipe?)ViewData["Recipe"];
+    string GetIngredients()
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder(@"<ul>");
+
+        MySite.Models.LinkRecIng[]? ingredients = 
+            (MySite.Models.LinkRecIng[]?)ViewData["Ingredients"];
+        if (ingredients is null) return "";
+        foreach (var item in ingredients)
+        {
+            sb.Append($"<li>{item.Ingredient.Name}\t" +
+                $"{item.Quantity}{item.Ingredient.MeasureUnit}</li>");
+        }
+        sb.Append(@"</ul>");
+
+        return sb.ToString();
+    }
 }
 <h1>@recipe?.Name</h1>
-<div class="main-section"> 
+<div class="main-section">
     <img />
-    <ul>
-    </ul>
+
+    @Html.Raw(GetIngredients())
+
     <br /><br />
+
     <p>
         @Html.Raw(@recipe?.Description)
     </p>

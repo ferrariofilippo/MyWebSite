@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySite.Models;
 using MySite.Data;
 using Microsoft.EntityFrameworkCore;
 namespace MySite.Pages
