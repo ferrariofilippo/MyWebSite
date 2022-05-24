@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySite.Data;
+using MySite.Models;
 using Microsoft.EntityFrameworkCore;
 namespace MySite.Pages
 {
@@ -8,11 +9,15 @@ namespace MySite.Pages
     {
         public async void OnGet(CookingDbContext db)
         {
-            ViewData["Title"] = Request.Query["recipe"];
-            ViewData["Recipe"] = await db.Recipes
-                .FindAsync(Request.Query["recipe"]);
+            var recipe = await db.Recipes
+                .FindAsync(int.Parse(Request.Query["recipe"].ToString()));
+
+            if (recipe is null) return;
+
+            ViewData["Title"] = recipe.Name;
+            ViewData["Recipe"] = recipe;
             ViewData["Ingredients"] = await db.RecipeIngredient
-                .Where(ri => ri.RecipeId == Request.Query["recipe"])
+                .Where(ri => ri.RecipeId == recipe.RecipeId)
                 .Include(ri => ri.Ingredient)
                 .ToArrayAsync();
         }

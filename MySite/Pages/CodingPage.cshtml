@@ -3,16 +3,39 @@
 @{
     ViewData["Title"] = "Coding";
     var projs = (MySite.Models.BriefProject[]?)ViewData["projects"];
+
+    string GetProjects()
+    {
+        if (projs is null) return "";
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        foreach (var item in projs)
+        {
+            sb.Append($"<div class=\"elmnt\"><img class=\"pic\"/>" +
+                $"<label class=\"ttl\">{item.Name}</label>" +
+                $"<label class=\"othr\">{item.Language}</label>" +
+                $"<p class=\"dtl\">{item.Resume}</p></div>");
+        }
+
+        return sb.ToString();
+    }
 }
 <div class="main-section">
-    <p>Our entire life is influenced by <strong>algorithms</strong>.<br />
-        Whether it is social media's software, this site's back-end or your biological algos, they shape the way you think, the way you are.<br />
-        Some are useful, others useless. Some are bugged, others implement them as features.<br /><br />
-        Programming is an <strong>art</strong>, just like painting or singing. <br />
-        As an art, it lets you express yourself, creating whatever you can imagine.<br />
-        Just as a musician writes an opera by putting one note after the other, a programmer composes an algorithm by linking instructions.
+    <p>
+        Our entire life is influenced by <strong>algorithms</strong>.<br />
+        Whether it is social media's software, this site's back-end or your 
+        biological algos, they shape the way you think, the way you are.<br />
+        Some are useful, others useless. Some are bugged, others implement them
+        as features.<br /><br />
+        Programming is an <strong>art</strong>, just like painting or singing. 
+        <br />
+        As an art, it lets you express yourself, creating whatever you 
+        can imagine.<br />
+        Just as a musician writes an opera by putting one note after the other
+        , a programmer composes an algorithm by linking instructions.
     </p>
     <div class="list-view">
-
+        @Html.Raw(@GetProjects())
     </div>
 </div>

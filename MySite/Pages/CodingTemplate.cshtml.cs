@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MySite.Models;
 using MySite.Data;
 using Microsoft.EntityFrameworkCore;
 namespace MySite.Pages
@@ -9,8 +8,12 @@ namespace MySite.Pages
     {
         public async void OnGet(CodingDbContext db)
         {
-            ViewData["Title"] = Request.Query["project"];
-            ViewData["Project"] = await db.Projects.FindAsync(Request.Query["project"]);
+            if (int.TryParse(Request.Query["project"].ToString(), out int index))
+            {
+                var project = await db.Projects.FindAsync(index);
+                ViewData["Title"] = project.Name;
+                ViewData["Project"] = project;
+            }
         }
     }
 }

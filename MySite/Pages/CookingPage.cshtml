@@ -3,20 +3,46 @@
 @{
     ViewData["Title"] = "Cooking";
     var rcps = (MySite.Models.BriefRecipe[]?)ViewData["recipes"];
+    string GetRecipes()
+    {
+        if (rcps is null) return "";
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        foreach (var item in rcps)
+        {
+            sb.Append($"<div class=\"elmnt\"><img class=\"pic\"/>" +
+                $"<label class=\"ttl\">{item.Name}</label>" +
+                $"<p class=\"dtl\">{item.Description}</p></div>");
+        }
+
+        return sb.ToString();
+    }
 }
 
 <div class="main-section">
-    <p>I'm a programmer. This means I <strong><a class="link-txt link" style="text-decoration: none" asp-page="/Privacy">hate cookies</a></strong>
+    <p>
+        I'm a programmer. This means I
+        <strong>
+            <a class="link-txt link" style="text-decoration: none" asp-page="/Privacy">
+                hate cookies
+            </a>
+        </strong>
         well, others' cookies, but I love mine. <br />
-        So, here's my <a class="link-txt link" href="/RecipeTemplate?recipe=cookie">cookie recipe</a>.
-    </p><br/><br />
+        So, here's my
+        <a class="link-txt link" href="/RecipeTemplate?recipe=cookie">
+            cookie recipe
+        </a>.
+    </p><br /><br />
 
     <h4>Why cooking?</h4>
     <p>
-        Well, in case you haven't noticed, I love <em style="color: #FF8000">algos</em>, and cooking <strong>is an algorithm</strong>.<br />
+        Well, in case you haven't noticed, I love 
+        <em style="color: #FF8000">algos</em>, and cooking 
+        <strong>is an algorithm</strong>.<br />
         You perform many tasks and then you eat their delicious result.
     </p><br /><br />
     <div class="list-view">
-
+        @Html.Raw(@GetRecipes())
     </div>
 </div>

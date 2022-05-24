@@ -4,11 +4,11 @@
     var recipe = (MySite.Models.Recipe?)ViewData["Recipe"];
     string GetIngredients()
     {
-        System.Text.StringBuilder sb = new System.Text.StringBuilder(@"<ul>");
-
         MySite.Models.LinkRecIng[]? ingredients = 
             (MySite.Models.LinkRecIng[]?)ViewData["Ingredients"];
         if (ingredients is null) return "";
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder(@"<ul>");
         foreach (var item in ingredients)
         {
             sb.Append($"<li>{item.Ingredient.Name}\t" +
