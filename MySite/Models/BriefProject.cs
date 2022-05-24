@@ -5,8 +5,9 @@
         public string Name { get; set; } = null!;
         public string Resume { get; set; } = null!;
         public Language Language { get; set; }
+        public byte[] Image { get; set; }
         public BriefProject(Project p) =>
-            (Name, Resume, Language) =
-            (p.Name, p.Resume, p.Language);
+            (Name, Resume, Language, Image) =
+            (p.Name, p.Resume, p.Language, p.Image);
     }
 }

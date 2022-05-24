@@ -12,7 +12,7 @@
 
         foreach (var item in projs)
         {
-            sb.Append($"<div class=\"elmnt\"><img class=\"pic\"/>" +
+            sb.Append($"<div class=\"elmnt\"><img class=\"pic\" src={item.Image}/>" +
                 $"<label class=\"ttl\">{item.Name}</label>" +
                 $"<label class=\"othr\">{item.Language}</label>" +
                 $"<p class=\"dtl\">{item.Resume}</p></div>");

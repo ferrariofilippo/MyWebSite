@@ -11,7 +11,7 @@
 
         foreach (var item in pgs)
         {
-            sb.Append($"<div class=\"elmnt\"><img class=\"pic\"/>" +
+            sb.Append($"<div class=\"elmnt\"><img class=\"pic\" src={item.Image}/>" +
                 $"<label class=\"ttl\">{item.Topic}</label>" +
                 $"<p class=\"dtl\">{item.Description}</p></div>");
         }

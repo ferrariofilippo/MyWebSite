@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 namespace MySite.Models
 {
     public class RandomPage
@@ -6,6 +6,7 @@ namespace MySite.Models
         public int RandomPageId { get; set; }
         public string Topic { get; set; } = null!;
         public string Description { get; set; } = null!;
-        
+        [Column(TypeName = "varbinary(max)")]
+        public byte[] Image { get; set; }
     }
 }

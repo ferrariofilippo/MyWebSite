@@ -1,4 +1,5 @@
-﻿namespace MySite.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+namespace MySite.Models
 {
     public class Travel
     {
@@ -7,5 +8,7 @@
         public string Description { get; set; } = null!;
         public string BackgroundImage { get; set; } = null!;
         List<SuggestedPlace>? Places { get; set; }
+        [Column(TypeName = "varbinary(max)")]
+        public byte[] Image { get; set; }
     }
 }
