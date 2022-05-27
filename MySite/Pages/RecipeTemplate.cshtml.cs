@@ -7,7 +7,7 @@ namespace MySite.Pages
 {
     public class RecipeTemplateModel : PageModel
     {
-        public async void OnGet(CookingDbContext db)
+        public async void OnGet([FromServices] CookingDbContext db)
         {
             var recipe = await db.Recipes
                 .FindAsync(int.Parse(Request.Query["recipe"].ToString()));

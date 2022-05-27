@@ -6,8 +6,9 @@ namespace MySite.Pages
 {
     public class TravelTemplateModel : PageModel
     {
-        public async void OnGet(TravelDbContext db)
+        public async void OnGet([FromServices]TravelDbContext db)
         {
+
             ViewData["Title"] = Request.Query["country"];
 
             var country = await db.Travels

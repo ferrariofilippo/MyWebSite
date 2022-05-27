@@ -18,14 +18,14 @@ var travelServer = ServerVersion.AutoDetect(travelConnection);
 var mindServer = ServerVersion.AutoDetect(mindConnection);
 
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<CookingDbContext>(db => 
+builder.Services.AddDbContext<CookingDbContext>(db =>
     db.UseMySql(cookingConnection, cookingServer));
-builder.Services.AddDbContext<TravelDbContext>(db => 
-    db.UseMySql(codingConnection, codingServer));
-builder.Services.AddDbContext<MindDbContext>(db => 
+builder.Services.AddDbContext<TravelDbContext>(db =>
     db.UseMySql(travelConnection, travelServer));
-builder.Services.AddDbContext<CodingDbContext>(db => 
+builder.Services.AddDbContext<MindDbContext>(db =>
     db.UseMySql(mindConnection, mindServer));
+builder.Services.AddDbContext<CodingDbContext>(db =>
+    db.UseMySql(codingConnection, codingServer));
 
 var app = builder.Build();
 

@@ -6,7 +6,7 @@ namespace MySite.Pages
 {
     public class CodingTemplateModel : PageModel
     {
-        public async void OnGet(CodingDbContext db)
+        public async void OnGet([FromServices]CodingDbContext db)
         {
             if (int.TryParse(Request.Query["project"].ToString(), out int index))
             {

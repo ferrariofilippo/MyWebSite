@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-namespace MySite.Models
+﻿namespace MySite.Models
 {
     public class Recipe
     {
@@ -7,7 +6,6 @@ namespace MySite.Models
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public List<LinkRecIng>? Ingredients { get; set; }
-        [Column(TypeName = "varbinary(max)")]
         public byte[] Image { get; set; }
     }
 }

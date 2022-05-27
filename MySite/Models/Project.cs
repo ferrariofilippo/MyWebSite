@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-namespace MySite.Models
+﻿namespace MySite.Models
 {
     public enum Language
     {
@@ -32,7 +31,6 @@ namespace MySite.Models
         public DateTime EndDate { get; set; }
         public string Resume { get; set; } = null!;
         public string? GitRef { get; set; }
-        [Column(TypeName = "varbinary(max)")]
         public byte[] Image { get; set; }
     }
 }

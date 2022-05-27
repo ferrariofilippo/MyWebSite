@@ -7,7 +7,7 @@ namespace MySite.Pages
 {
     public class MindTemplateModel : PageModel
     {
-        public async void OnGet(MindDbContext db)
+        public async void OnGet([FromServices]MindDbContext db)
         {
             if (int.TryParse(Request.Query["page"].ToString(), out int index))
             {
