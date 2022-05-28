@@ -9,13 +9,20 @@ namespace MySite.Pages
     {
         public async void OnGet([FromServices]MindDbContext db)
         {
+            db.Database.OpenConnection();
             if (int.TryParse(Request.Query["page"].ToString(), out int index))
             {
                 var page = await db.Pages.FindAsync(index);
-                if (page is null) return;
+                if (page is null)
+                {
+                    db.Database.CloseConnection();
+                    return;
+                }
+
                 ViewData["Title"] = page.Topic;
                 ViewData["Content"] = page;
             }
+            db.Database.CloseConnection();
         }
     }
 }

@@ -7,11 +7,13 @@ namespace MySite.Pages
 {
     public class MindPageModel : PageModel
     {
-        public async void OnGet(MindDbContext db)
+        public async void OnGet([FromServices] MindDbContext db)
         {
+            db.Database.OpenConnection();
             ViewData["pages"] = await db.Pages
                 .Select(p => new BriefMind(p))
                 .ToArrayAsync();
+            db.Database.CloseConnection();
         }
     }
 }

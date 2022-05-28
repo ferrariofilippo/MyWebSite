@@ -5,7 +5,9 @@
     var places = (MySite.Models.SuggestedPlace[]?)ViewData["Places"];
 }
 
-<div style="background-image: @country?.BackgroundImage">
+<div style="background-image: src('data:image/png;base64,
+    @Convert.ToBase64String(@country != null
+        ? @country.BackgroundImage : new byte[1])')">
     <h1 style="text-align: center">@country?.Country</h1>
 </div>
 <div class="main-section">
@@ -15,7 +17,6 @@
     </p>
     <br /><br />
     <div class="carousel">
-    
     </div>
     <br /><br />
     <h4>My top 5:</h4>

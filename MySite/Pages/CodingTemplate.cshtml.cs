@@ -8,12 +8,14 @@ namespace MySite.Pages
     {
         public async void OnGet([FromServices]CodingDbContext db)
         {
+            db.Database.OpenConnection();
             if (int.TryParse(Request.Query["project"].ToString(), out int index))
             {
                 var project = await db.Projects.FindAsync(index);
-                ViewData["Title"] = project.Name;
+                ViewData["Title"] = project?.Name;
                 ViewData["Project"] = project;
             }
+            db.Database.CloseConnection();
         }
     }
 }

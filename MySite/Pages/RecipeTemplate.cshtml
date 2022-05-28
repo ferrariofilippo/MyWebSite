@@ -21,7 +21,8 @@
 }
 <h1>@recipe?.Name</h1>
 <div class="main-section">
-    <img src=@recipe?.Image/>
+    <img src="data:image/png;base64,@Convert.ToBase64String(
+        @recipe != null  && @recipe.Image != null ? @recipe.Image : new byte[1])"/>
 
     @Html.Raw(GetIngredients())
 

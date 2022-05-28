@@ -83,13 +83,17 @@ body {
 .elmnt {
     display: grid;
     grid-template-areas:
-        'picture picture title title other'
-        'picture picture detail detail detail';
+        'picture title other'
+        'picture detail detail';
     gap: 10px;
     padding: 5px;
 }
 
-.pic { grid-area: picture; }
+.pic { 
+    grid-area: picture; 
+    max-width: 100px;
+    max-height: 100px;
+}
 .ttl { grid-area: title; }
 .othr { grid-area: other; }
 .dtl { grid-area: detail; }

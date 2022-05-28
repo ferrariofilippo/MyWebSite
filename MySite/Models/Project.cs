@@ -28,7 +28,7 @@
         public ProjectType ProjectType { get; set; }
         public Language Language { get; set; }
         public DateOnly BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateOnly EndDate { get; set; }
         public string Resume { get; set; } = null!;
         public string? GitRef { get; set; }
         public byte[] Image { get; set; }

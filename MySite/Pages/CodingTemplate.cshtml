@@ -19,7 +19,8 @@
     <div>
         @Html.Raw(project?.Resume)
     </div>
-    <img src=@project?.Image/>
+    <img src="data:image/png;base64,@Convert.ToBase64String(
+        @project != null && @project?.Image != null ? @project.Image : new byte[1])"/>
 
     <p>
         @Html.Raw(@project?.Description)
