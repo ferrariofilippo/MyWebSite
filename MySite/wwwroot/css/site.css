@@ -64,6 +64,7 @@ body {
 .list-view {
     display: flex;
     flex-direction: column;
+    row-gap: 50px;
 }
 
 .main-section {
@@ -82,21 +83,35 @@ body {
 
 .elmnt {
     display: grid;
-    grid-template-areas:
-        'picture title other'
-        'picture detail detail';
     gap: 10px;
     padding: 5px;
 }
 
 .pic { 
-    grid-area: picture; 
-    max-width: 100px;
-    max-height: 100px;
+    grid-row: 1 / span 2; 
+    grid-column: 1 / span 2;
 }
-.ttl { grid-area: title; }
-.othr { grid-area: other; }
-.dtl { grid-area: detail; }
+.ttl { 
+    grid-row: 1;
+    grid-column: 3 / span 3;
+}
+.othr {
+    grid-row: 1;
+    grid-column: 6;
+
+}
+.dtl { 
+    grid-row: 2;
+    grid-column: 3 / span 4; 
+}
+
+.main-pic {
+    max-width: 80%;
+    max-height: 80%;
+}
+.elmnt-pic {
+    max-height: 20%;
+}
 
 @media (min-width: 768px) {
     html {

@@ -1,6 +1,7 @@
 ﻿@page
 @model MySite.Pages.TravelTemplateModel
 @{
+    await Model.WaitData();
     var country = (MySite.Models.Travel?)ViewData["Travel"];
     var places = (MySite.Models.SuggestedPlace[]?)ViewData["Places"];
 }

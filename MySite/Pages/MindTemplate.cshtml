@@ -1,6 +1,7 @@
 ﻿@page
 @model MySite.Pages.MindTemplateModel
 @{
+    await Model.WaitData();
     var content = (MySite.Models.RandomPage?)ViewData["Content"];
 }
 

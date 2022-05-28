@@ -1,10 +1,11 @@
 ﻿@page
 @model MySite.Pages.RecipeTemplateModel
 @{
+    await Model.WaitData();
     var recipe = (MySite.Models.Recipe?)ViewData["Recipe"];
     string GetIngredients()
     {
-        MySite.Models.LinkRecIng[]? ingredients = 
+        MySite.Models.LinkRecIng[]? ingredients =
             (MySite.Models.LinkRecIng[]?)ViewData["Ingredients"];
         if (ingredients is null) return "";
 
@@ -22,7 +23,7 @@
 <h1>@recipe?.Name</h1>
 <div class="main-section">
     <img src="data:image/png;base64,@Convert.ToBase64String(
-        @recipe != null  && @recipe.Image != null ? @recipe.Image : new byte[1])"/>
+        @recipe != null  && @recipe.Image != null ? @recipe.Image : new byte[1])" />
 
     @Html.Raw(GetIngredients())
 

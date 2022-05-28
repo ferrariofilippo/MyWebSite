@@ -8,13 +8,30 @@ namespace MySite.Pages
 {
     public class CodingPageModel : PageModel
     {
+        CancellationTokenSource tokenSource = new CancellationTokenSource();
+        CancellationToken token;
         public async void OnGet([FromServices] CodingDbContext db)
         {
-            db.Database.OpenConnection();
+            token = tokenSource.Token;
             ViewData["projects"] = await db.Projects
                 .Select(p => new BriefProject(p))
                 .ToArrayAsync();
-            db.Database.CloseConnection();
+            tokenSource.Cancel();
+        }
+        
+        public async Task WaitData()
+        {
+            try
+            {
+                while (true)
+                {
+                    token.ThrowIfCancellationRequested();
+                }
+            }
+            catch(Exception)
+            {
+                Debug.Print("Data Loaded");
+            }
         }
     }
 }

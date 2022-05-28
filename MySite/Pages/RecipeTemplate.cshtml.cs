@@ -3,18 +3,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySite.Data;
 using MySite.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 namespace MySite.Pages
 {
     public class RecipeTemplateModel : PageModel
     {
+        CancellationTokenSource tokenSource = new CancellationTokenSource();
+        CancellationToken token;
         public async void OnGet([FromServices] CookingDbContext db)
         {
-            db.Database.OpenConnection();
+            token = tokenSource.Token;
             var recipe = await db.Recipes
                 .FindAsync(int.Parse(Request.Query["recipe"].ToString()));
             if (recipe is null)
             {
-                db.Database.CloseConnection();
+                tokenSource.Cancel();
                 return;
             }
 
@@ -24,7 +27,22 @@ namespace MySite.Pages
                 .Where(ri => ri.RecipeId == recipe.RecipeId)
                 .Include(ri => ri.Ingredient)
                 .ToArrayAsync();
-            db.Database.CloseConnection();
+            tokenSource.Cancel();
+        }
+
+        public async Task WaitData()
+        {
+            try
+            {
+                while (true)
+                {
+                    token.ThrowIfCancellationRequested();
+                }
+            }
+            catch (Exception)
+            {
+                Debug.Print("Data Loaded");
+            }
         }
     }
 }
