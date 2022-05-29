@@ -6,6 +6,7 @@ namespace MySite.Data
     {
         public DbSet<Travel> Travels => Set<Travel>();
         public DbSet<SuggestedPlace> SuggestedPlaces => Set<SuggestedPlace>();
+        public DbSet<Picture> Pictures => Set<Picture>();
         public TravelDbContext(DbContextOptions<TravelDbContext> options) 
             : base(options) { }
     }
