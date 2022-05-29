@@ -7,7 +7,8 @@ namespace MySite.Data
         public DbSet<Ingredient> Ingredients => Set<Ingredient>();
         public DbSet<Recipe> Recipes => Set<Recipe>();
         public DbSet<LinkRecIng> RecipeIngredient => Set<LinkRecIng>();
-        public CookingDbContext(DbContextOptions<CookingDbContext> options) : base(options) { }
+        public CookingDbContext(DbContextOptions<CookingDbContext> options) 
+            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

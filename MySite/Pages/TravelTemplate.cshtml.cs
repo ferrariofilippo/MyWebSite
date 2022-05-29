@@ -16,6 +16,7 @@ namespace MySite.Pages
 
             var country = await db.Travels
                 .Where(t => t.Country == Request.Query["country"].ToString())
+                .Include(t => t.Pictures)
                 .FirstOrDefaultAsync();
             if (country is null)
             {

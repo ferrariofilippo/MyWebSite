@@ -5,7 +5,7 @@
     var project = (MySite.Models.Project?)ViewData["Project"];
 }
 
-<div>
+<div style="padding-top: 30px">
     <h1 style="text-align: center;">@project?.Name</h1>
 </div>
 <div class="main-section">
@@ -13,8 +13,11 @@
         <div style="color: gray; font-style: italic; font-weight:200;">
             @project?.BeginDate- @project?.EndDate
         </div>
-        <div style="background-color: #FF8000; color: white;" class="main-container">
-            @project?.Language - @project?.ProjectType
+        <div style="background-color: #FF8000; color: white; padding: 5px;
+                    justify-content: center;" class="main-container">
+            <label>@project?.Language</label>
+            <label>     -    </label>
+            <label>@project?.ProjectType</label>
         </div>
     </div>
     <div>
@@ -22,11 +25,11 @@
     </div>
     <img src="data:image/png;base64,@Convert.ToBase64String(
         @project != null && @project?.Image != null ? @project.Image : new byte[1])"
-        class="main-pic"
-        style="justify-content: center"/>
+         class="main-pic"
+         style="justify-content: center" />
 
     <p>
         @Html.Raw(@project?.Description)
-    </p><br /><br />
+    </p>
     <a class="link link-txt" herf=@project?.GitRef><em>GitHub Repository</em></a>
 </div>

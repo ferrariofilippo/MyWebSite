@@ -13,9 +13,9 @@
 
         foreach (var item in projs)
         {
-            sb.Append($"<a href=\"/CodingTemplate?project={item.ProjectId}\" class=\"link-txt\">" +
-                "<div class=\"elmnt\"><div class=\"pic\"><img class=\"elmnt-pic\" " +
-                $"src=\"data:image/png;base64,{Convert.ToBase64String(item.Image)}\"/></div>" +
+            sb.Append($"<a href=\"/CodingTemplate?project={item.ProjectId}\" class=\"link-txt flat-link\">" +
+                "<div class=\"elmnt\"><img class=\"pic\"" +
+                $"src=\"data:image/png;base64,{Convert.ToBase64String(item.Image)}\"/>" +
                 $"<label class=\"ttl\">{item.Name}</label>" +
                 $"<label class=\"othr\">{item.Language}</label>" +
                 $"<p class=\"dtl\">{item.Resume}</p></div></a>");
