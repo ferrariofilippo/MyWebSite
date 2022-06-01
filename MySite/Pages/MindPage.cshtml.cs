@@ -13,24 +13,34 @@ namespace MySite.Pages
         public async void OnGet([FromServices] MindDbContext db)
         {
             token = tokenSource.Token;
+
             ViewData["pages"] = await db.Pages
-                .Select(p => new BriefMind(p))
-                .ToArrayAsync();
+               .Select(p => new BriefMind(p))
+               .ToArrayAsync();
+
             tokenSource.Cancel();
         }
+
         public async Task WaitData()
         {
-            try
+            await Task.Run(() =>
             {
-                while (true)
+                try
                 {
-                    token.ThrowIfCancellationRequested();
+                    while (true)
+                    {
+                        token.ThrowIfCancellationRequested();
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                Debug.Print("Data Loaded");
-            }
+                catch(OperationCanceledException)
+                {
+                    Debug.WriteLine("Data Loaded");
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                }
+            });
         }
     }
 }

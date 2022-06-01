@@ -1,8 +1,25 @@
 ﻿@page
 @model MySite.Pages.MindPageModel
+
+<script src="~/js/mindscript.js" asp-append-version="true"></script>
+
+<div id="ldng_pop_up" class="pop-up">
+    <div class="popup-content">
+        <img />
+        <h1 id="pop_up_text" class="popup-txt"></h1>
+    </div>
+</div>
+
+<script>
+    start_loading();
+    @{
+        await Model.WaitData();
+        ViewData["Title"] = "In My Mind";
+    }
+    close_loading();
+</script>
+
 @{
-    await Model.WaitData();
-    ViewData["Title"] = "In My Mind";
     var pgs = (MySite.Models.BriefMind[]?)ViewData["pages"];
     string GetPages()
     {
@@ -12,27 +29,24 @@
 
         foreach (var item in pgs)
         {
-            sb.Append($"<a class=\"link-txt flat-link\" href=\"/MindTemplate?page={item.MindId}\">" + 
-                "<div class=\"elmnt\"><img class=\"pic\" " + 
-                $"src=\"data:image/png;base64,{Convert.ToBase64String(item.Image)}\"/>" +
-                $"<label class=\"ttl\">{item.Topic}</label>" +
-                $"<p class=\"dtl\">{item.Description}</p></div></a>");
+            sb.Append($"<a class=\"link-txt flat-link\" href=\"/MindTemplate?page={item.MindId}\">" +
+            "<div class=\"elmnt\"><img class=\"pic\" " +
+            $"src=\"data:image/png;base64,{Convert.ToBase64String(item.Image)}\"/>" +
+            $"<label class=\"ttl\">{item.Topic}</label>" +
+            $"<p class=\"dtl\">{item.Description}</p></div></a>");
         }
 
         return sb.ToString();
     }
 }
 
-<div class="main-section">
-    @*Navigare nel mio cervello? Quando si clicca su qualcosa schermata con "Caricamento Ricordi",
-    animazione di un archivio che viene aperto nel cervello*@
+<div class="main-section" id="main_content">
     <p>
         Here we are! <strong>My mind</strong>, the source of all the knowledge
         in the world and of my modesty!<br />
-        Jokes aside, all my ideas come from here, so this place is quite a mess
-        .<br />
+        Jokes aside, all my ideas come from here, so this place is quite a mess.<br />
         Whatever has no dedicated section is packed in here.<br />
-        Finding what you need would be the eighth of Ercules' fatigues, so I 
+        Finding what you need would be the eighth of Ercules' fatigues, so I
         added this search bar to let you save your precious time!
     </p>
     <div class="list-view">
