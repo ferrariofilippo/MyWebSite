@@ -129,7 +129,7 @@ body {
 }
 
 .pop-up {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 1;
     padding: 20%;
@@ -145,10 +145,10 @@ body {
     margin: auto;
     padding: 0;
     width: 90%;
-    background-color: transparent;
 }
 .popup-txt {
     color: white;
+    text-align: center;
 }
 
 @media (min-width: 768px) {

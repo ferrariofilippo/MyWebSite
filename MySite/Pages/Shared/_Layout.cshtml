@@ -6,9 +6,16 @@
     <title>@ViewData["Title"] - Filippo Ferrario</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MySite.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/MySite.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <div id="ldng_pop_up" class="pop-up">
+        <div class="popup-content">
+            <img />
+            <h1 id="pop_up_text" class="popup-txt"></h1>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
@@ -23,19 +30,19 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CodingPage">CODING PROJECTS</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CodingPage" onclick="start_loading('Getting random code from StackOverflow ')">CODING PROJECTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/CookingPage">COOKING</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CookingPage" onclick="start_loading('Learning how to cook ')">COOKING</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/TravelPage">TRAVEL</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/TravelPage" onclick="start_loading('Finding the way home ')">TRAVEL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/MindPage">IN MY MIND</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MindPage" onclick="start_loading('Loading Memories ')">IN MY MIND</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">PRIVACY</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy" onclick="start_loading('Figuring out where did I put it ')">PRIVACY</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +65,9 @@
                     <h6 class="centered">Contatti</h6>
                     <button id="emailBtn" class="centered eml-btn ftr-front"
                             onclick="copy_email()" onmouseover="reset_tooltip()"
-                            data-placement="top" data-toggle="tooltip" title="Copy Email">filippo.ferrario@issgreppi.it</button>
+                            data-placement="top" data-toggle="tooltip" title="Copy Email">
+                        filippo.ferrario@issgreppi.it
+                    </button>
                 </div>
             </div>
         </div>

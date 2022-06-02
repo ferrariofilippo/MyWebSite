@@ -12,6 +12,6 @@
     <img src="data:image/png;data64,@Convert.ToBase64String(
         @content != null && @content.Image != null ? @content.Image : new byte[1])" />
     <p>
-        @Html.Raw(@content?.Description);
+        @Html.Raw(@content?.Description)
     </p>
 </div>

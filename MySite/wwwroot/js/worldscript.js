@@ -48,7 +48,8 @@ async function load_countries() {
         area.shape = 'poly';
         area.alt = countries[i]['country'];
         area.href = '/TravelTemplate?country=' + countries[i]['url'];
-        
+        area.onclick = function () { start_loading(`Travelling to ${this.alt} `) };
+
         var coords = [];
         for (var j = 0; j < countries[i]['coords'].length; j++) {
             coords.push(countries[i]['coords'][j][0]);
