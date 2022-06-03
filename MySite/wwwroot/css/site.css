@@ -151,6 +151,27 @@ body {
     text-align: center;
 }
 
+.loader {
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 50%;
+    border: 12px solid white;
+    border-bottom: 12px solid #FF8000;
+    border-top: 12px solid #FF8000;
+    width: 80px;
+    height: 80px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(10deg); }
+    35% { transform: rotate(170deg); }
+    50% { transform: rotate(180deg); }
+    65% { transform: rotate(170deg); }
+    85% { transform: rotate(10deg); }
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
