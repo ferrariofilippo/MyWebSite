@@ -9,6 +9,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    overflow: scroll;
 }
 
 * {
@@ -161,6 +162,26 @@ body {
     width: 80px;
     height: 80px;
     animation: spin 3s linear infinite;
+}
+
+.hdr-container{
+    position: relative;
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+}
+.hdr-image {
+    height: 100%;
+    width: 100%;   
+}
+
+.hdr-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 350%;
+    font-weight: 700;
 }
 
 @keyframes spin {

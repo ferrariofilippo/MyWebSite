@@ -57,7 +57,7 @@ button.accept-policy {
 .ftr-container{
     padding-top: 5px;
     padding-bottom: 5px;
-    gap: 50px;
+    gap: 40px;
 }
 
 .flex-vrt{
@@ -71,7 +71,7 @@ button.accept-policy {
     flex-direction: column;
     grid-template-rows: auto auto;
     text-align: center;
-    gap: 20px;
+    gap: 8px;
 }
 
 .eml-btn{
