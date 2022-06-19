@@ -75,6 +75,7 @@ body {
     min-height: 100%;
     row-gap: 40px;
     overflow: scroll;
+    margin-bottom: 200px;
 }
 
 .wrld {

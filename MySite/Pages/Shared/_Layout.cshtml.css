@@ -40,6 +40,7 @@ button.accept-policy {
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 130px;
   white-space: nowrap;
   line-height: 60px;
   background-color:#2F2F2F;
@@ -90,6 +91,9 @@ button.accept-policy {
         flex-direction: row;
         grid-template-columns: auto auto;
         gap: 10%;
+    }
+    .footer {
+        height: 70px;
     }
 }
 

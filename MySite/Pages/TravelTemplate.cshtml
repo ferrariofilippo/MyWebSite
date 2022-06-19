@@ -17,15 +17,15 @@
         {
             sb.Append($"<li data-target=\"#pictures\" data-slide-to=\"{i}\"></li> ");
         }
-        sb.Append("</ol> <div class=\"carousel-inner\"> " +
-                  "<div class=\"carousel-item active\"> <img src=\"data:image/png;" +
+        sb.Append("</ol> <div class=\"carousel-inner\"> \n" +
+                  "<div class=\"carousel-item active\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
                   $"base64,{Convert.ToBase64String(country.Pictures[0].Image)}" +
-                  "\" class=\"d-block w-100\"/> </div>");
+                  "\"/> \n</div>\n");
         for (int i = 1; i < country.Pictures.Count; i++)
         {
-            sb.Append("<div class=\"carousel-item\"> <img src=\"data:image/png;" +
+            sb.Append("<div class=\"carousel-item\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
                       $"base64,{Convert.ToBase64String(country.Pictures[i].Image)}" +
-                      "\" class=\"d-block w-100\"/> </div>");
+                      "\"/>\n</div>\n   ");
         }
         sb.Append(" </div>");
 
