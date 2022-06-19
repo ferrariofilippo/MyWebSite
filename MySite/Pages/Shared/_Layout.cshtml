@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="~/MySite.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
     <div id="ldng_pop_up" class="pop-up">
         <div class="popup-content">
             <h1 id="pop_up_text" class="popup-txt"></h1>
@@ -77,9 +81,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
