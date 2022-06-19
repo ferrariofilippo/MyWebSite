@@ -10,24 +10,17 @@
         if (country is null || country.Pictures is null) return "";
 
         System.Text.StringBuilder sb = new System.Text.StringBuilder(
-           "<ol class=\"carousel-indicators\"> " +
-            $"<li data-target=\"#pictures\" data-slide-to=\"0\" class=\"active\"></li> ");
-
-        for (int i = 1; i < country.Pictures.Count; i++)
-        {
-            sb.Append($"<li data-target=\"#pictures\" data-slide-to=\"{i}\"></li> ");
-        }
-        sb.Append("</ol> <div class=\"carousel-inner\"> \n" +
-                  "<div class=\"carousel-item active\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
-                  $"base64,{Convert.ToBase64String(country.Pictures[0].Image)}" +
-                  "\"/> \n</div>\n");
+            "<div class=\"carousel-inner\">\n" +
+            "<div class=\"carousel-item active\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
+            $"base64,{Convert.ToBase64String(country.Pictures[0].Image)}" +
+            $"\" alt=\"{country.Country}0\"/>\n</div>\n");
         for (int i = 1; i < country.Pictures.Count; i++)
         {
             sb.Append("<div class=\"carousel-item\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
                       $"base64,{Convert.ToBase64String(country.Pictures[i].Image)}" +
-                      "\"/>\n</div>\n");
+                      $"\" alt=\"{country.Country}{i}\"/>\n</div>\n");
         }
-        sb.Append(" </div>");
+        sb.Append("</div>");
 
         return sb.ToString();
     }
@@ -44,14 +37,14 @@
     <p>
         @Html.Raw(@country?.Description)
     </p>
-    <div class="carousel slide" data-ride="carousel" id="pictures">
+    <div class="carousel slide" data-bs-ride="carousel" id="pictures">
         @Html.Raw(@CarouselContent())
-        <a class="carousel-control-prev" href="#pictures" role="button" data-slide="prev">
+        <button class="carousel-control-prev" data-bs-target="#pictures" type="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a class="carousel-control-next" href="#pictures" role="button" data-slide="next">
+        </button>
+        <button class="carousel-control-next" data-bs-target="#pictures" type="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
+        </button>
     </div>
     <h4>My top 5:</h4>
     <ul>
