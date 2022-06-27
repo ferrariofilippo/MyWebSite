@@ -11,9 +11,7 @@
             (MindId, Topic, Description, Image) =
             (p.RandomPageId,
             p.Topic,
-            p.Description.Length > 200 
-                ? p.Description[..200]
-                : p.Description,
+            p.Resume,
             p.Image);
     }
 }

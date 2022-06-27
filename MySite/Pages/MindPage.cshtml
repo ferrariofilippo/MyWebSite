@@ -18,10 +18,9 @@
             "onclick=\"start_loading(\'Putting memories back together \')\">" +
             "<div class=\"elmnt\"><img class=\"pic\" " +
             $"src=\"data:image/png;base64,{Convert.ToBase64String(item.Image)}\"/>" +
-            $"<label class=\"ttl\">{item.Topic}</label>" +
+            $"<label class=\"ttl\"><h3>{item.Topic}</h3></label>" +
             $"<p class=\"dtl\">{item.Description}</p></div></a>");
         }
-
         return sb.ToString();
     }
 }

@@ -3,6 +3,8 @@
 @{
     await Model.WaitData();
     var content = (MySite.Models.RandomPage?)ViewData["Content"];
+    if (content is not null)
+        content.Description = content.Description.Replace('\r', '\0').Replace('\n', '\0');
 }
 
 <div>
@@ -11,7 +13,7 @@
 <div class="main-section">
     <img src="data:image/png;data64,@Convert.ToBase64String(
         @content != null && @content.Image != null ? @content.Image : new byte[1])" />
-    <p>
+    <div>
         @Html.Raw(@content?.Description)
-    </p>
+    </div>
 </div>

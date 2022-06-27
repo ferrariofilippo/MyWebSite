@@ -10,6 +10,9 @@ html {
 body {
     margin-bottom: 60px;
 }
+h3 {
+    color: #FF8000;
+}
 
 * {
     box-sizing: border-box;
@@ -314,5 +317,9 @@ body {
 
     .base-text {
         color: white;
+    }
+
+    .elmnt:hover {
+        background-color: #1F1F1F;
     }
 }

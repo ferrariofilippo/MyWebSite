@@ -10,9 +10,7 @@
             (RecipeId, Name, Description, Image) =
             (r.RecipeId,
             r.Name, 
-            r.Description.Length > 200 
-                ? r.Description[..200] 
-                : r.Description,
+            r.Resume,
             r.Image);
     }
 }

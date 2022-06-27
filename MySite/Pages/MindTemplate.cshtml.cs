@@ -21,7 +21,6 @@ namespace MySite.Pages
                     tokenSource.Cancel();
                     return;
                 }
-
                 ViewData["Title"] = page.Topic;
                 ViewData["Content"] = page;
             }
