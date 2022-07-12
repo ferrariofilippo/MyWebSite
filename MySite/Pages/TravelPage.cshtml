@@ -5,7 +5,7 @@
 }
 
 <script src="~/js/worldscript.js" asp-append-version="true"></script>
-<body onresize="adjust_hitboxes()" onload="fetch_visited()">
+<body onload="fetch_visited()">
     <div class="main-section" id="map-container">
         <p>
             Where am I? Where have I been?<br />
@@ -19,11 +19,46 @@
                 <strong><br /><br />(This function needs js to work)</strong>
             </noscript>
         </p>
-        <div id="world">
-            <img src="Images/world.png" class="wrld" usemap="#countries"
-                 id="worldmap" alt="blank world map" onload="load_countries()"/>
-            <map name="countries" id="countries">
-            </map>
-        </div>
+        <div id="map"></div>
+
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+        <script>
+            function travelTo(e) {
+                start_loading(`Travelling to ${e.target.name} `)
+                location.href = `/TravelTemplate?country=${e.target.name.replace(' ', '_')}`;
+            }
+            function setCountryClicked(country, layer) {
+                layer.on({
+                    click: travelTo
+                });
+                layer.name = country.properties.admin;
+            }
+
+            var geoJSONPath = "/Data/worldgeo.json";
+            var mapStyle = {
+                stroke: true,
+                color: 'white',
+                fill: true,
+                fillColor: '#ff8000',
+                fillOpacity: 0.6
+            };
+
+            var map = L.map('map').setView([0, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 7,
+                minZoom: 2,
+                attribution: '© OpenStreetMap',
+            }).addTo(map);
+
+            $.getJSON(geoJSONPath, function(data) {
+
+                L.geoJson(data, {
+                    clickable: false,
+                    style: mapStyle,
+                    onEachFeature: setCountryClicked
+                }).addTo(map);
+            });
+        </script>
     </div>
 </body>

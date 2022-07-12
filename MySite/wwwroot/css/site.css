@@ -32,18 +32,18 @@ h4 {
     border-bottom: 1px solid #e5e5e5;
 }
 
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
         color: #2F2F2F;
-}
+    }
 
 .base-text {
     color: #2F2F2F;
 }
 
-.base-text:hover{
-    color: #FF8000;
-}
+    .base-text:hover {
+        color: #FF8000;
+    }
 
 .left {
     width: 100%;
@@ -150,14 +150,14 @@ h4 {
     text-decoration: none;
 }
 
-.flat-link:hover {
-    color: black;
-}
+    .flat-link:hover {
+        color: black;
+    }
 
 .pop-up {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     padding: 20%;
     left: 0;
     top: 0;
@@ -209,6 +209,11 @@ h4 {
     transform: translate(-50%, -50%);
     font-size: 350%;
     font-weight: 700;
+}
+
+#map {
+    height: 600px;
+    background-color: white;
 }
 
 @keyframes spin {
@@ -278,6 +283,10 @@ h4 {
 }
 
 @media (prefers-color-scheme: dark) {
+    #map {
+        background-color: #2F2F2F;
+    }
+
     .right {
         background-color: #2F2F2F;
         color: white;
@@ -311,10 +320,10 @@ h4 {
         border-bottom: 1px solid #000;
     }
 
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-text {
-        color: white;
-    }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: white;
+        }
 
     .base-text {
         color: white;
