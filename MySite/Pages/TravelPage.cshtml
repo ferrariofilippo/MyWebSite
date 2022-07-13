@@ -25,8 +25,9 @@
         <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
         <script>
             function travelTo(e) {
+                const parsed = e.target.name.replaceAll(' ', '_')
                 start_loading(`Travelling to ${e.target.name} `)
-                location.href = `/TravelTemplate?country=${e.target.name.replace(' ', '_')}`;
+                location.href = `/TravelTemplate?country=${parsed}`;
             }
             function setCountryClicked(country, layer) {
                 layer.on({
@@ -60,5 +61,8 @@
                 }).addTo(map);
             });
         </script>
+        <noscript>
+            This page need JS to work properly.
+        </noscript>
     </div>
 </body>

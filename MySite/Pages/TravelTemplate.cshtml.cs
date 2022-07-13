@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySite.Data;
+using MySite.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 namespace MySite.Pages
@@ -9,7 +10,7 @@ namespace MySite.Pages
     {
         CancellationTokenSource tokenSource = new CancellationTokenSource();
         CancellationToken token;
-        public async void OnGet([FromServices]TravelDbContext db)
+        public async void OnGet([FromServices] TravelDbContext db)
         {
             token = tokenSource.Token;
             ViewData["Title"] = Request.Query["country"];
@@ -20,7 +21,12 @@ namespace MySite.Pages
                 .FirstOrDefaultAsync();
             if (country is null)
             {
-                tokenSource.Cancel();   
+                ViewData["Travel"] = new Travel()
+                {
+                    Country = Request.Query["country"].ToString().Replace('_', ' '),
+                    Description = "Still not visited!"
+                };
+                tokenSource.Cancel();
                 return;
             }
 

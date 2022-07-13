@@ -8,7 +8,6 @@
     string CarouselContent()
     {
         if (country is null || country.Pictures is null) return "";
-
         System.Text.StringBuilder sb = new System.Text.StringBuilder(
             "<div class=\"carousel-inner\">\n" +
             "<div class=\"carousel-item active\"> \n<img class=\"d-block w-100\" src=\"data:image/png;" +
@@ -29,12 +28,16 @@
 <div class="hdr-container">
     <img src="data:image/png;base64,
          @Convert.ToBase64String(@country != null
-         ? @country.BackgroundImage : new byte[1])"
-         class="hdr-image" />
+         ? (@country.BackgroundImage != null
+             ? @country.BackgroundImage
+             : Array.Empty<byte>())
+         : Array.Empty<byte>())"
+         class="hdr-image"
+         id="hdrImg" />
     <h1 class="hdr-title">@country?.Country</h1>
 </div>
 <div class="main-section">
-    <p>
+    <p id="description">
         @Html.Raw(@country?.Description)
     </p>
     <div class="carousel slide" data-bs-ride="carousel" id="pictures">
@@ -46,8 +49,8 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
     </div>
-    <h4>My top 5:</h4>
-    <ul>
+    <h4 id="topFiveTitle">My top 5:</h4>
+    <ul id="topFive">
         <li><a class="link-txt link" href=@places?[0]?.Url>@places?[0]?.Name</a></li>
         <li><a class="link-txt link" href=@places?[0]?.Url>@places?[1]?.Name</a></li>
         <li><a class="link-txt link" href=@places?[0]?.Url>@places?[2]?.Name</a></li>
@@ -55,3 +58,12 @@
         <li><a class="link-txt link" href=@places?[0]?.Url>@places?[4]?.Name</a></li>
     </ul>
 </div>
+<script>
+    const description = document.getElementById("description").innerHTML;
+    if (description.includes("Still not visited!", 0)) {
+        document.getElementById("pictures").style.visibility = 'hidden';
+        document.getElementById("topFiveTitle").style.visibility = 'hidden';
+        document.getElementById("topFive").style.visibility = 'hidden';
+        document.getElementById("hdrImg").style.visibility = 'hidden';
+    }
+</script>
